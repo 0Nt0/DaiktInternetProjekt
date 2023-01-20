@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "PROJEKTINIS",
+    "slug": "PROJEKTINIS",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.emiliszvirblys.PROJEKTINIS"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCiabOSuGkOwgUn8HNZ9g9sti-B3VFhRmI"
+        }
+      },
+      "package": "com.emiliszvirblys.PROJEKTINIS"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoianV6YXMxMTIiLCJhIjoiY2xjam90NWFsMGtrYjNwbGdxdWE3d3JlYiJ9.avyZFw4DErD-VFOUmiLKdA"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "07495f39-3fa8-4c95-9bab-d1400b24fee9"
+      }
+    }
+  }
+}
