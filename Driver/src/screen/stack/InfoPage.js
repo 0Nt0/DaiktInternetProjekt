@@ -7,7 +7,9 @@ import {
     SafeAreaView,
 	StyleSheet,
     Text,
-    View
+    TouchableOpacity,
+    View,
+    Linking
 } from 'react-native';
 
 import {
@@ -61,6 +63,20 @@ function InfoPage({ route, navigation}) {
                 <Text style={styles.bodyText}>{userCity}, {userStreet}, {userHouse}</Text>
                 <Text style={styles.bodyText}>User code: {userCode}</Text>
                 <Text style={styles.bodyText}>Item bought: {itemId}</Text>
+
+
+                <TouchableOpacity onPress={() => {
+                    const latitude = "54.707340";
+                    const longitude = "25.254121";
+
+                    const url = Platform.select({
+                        ios: "maps:" + latitude + "," + longitude + "?q=" + userStreet + " " + userHouse + ", " + userCity,
+                        android: "geo:" + latitude + "," + longitude + "?q=" + userStreet + " " + userHouse + ", " + userCity
+                    });
+                    Linking.openURL(url);
+                }}>
+                    <Text>GPS</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     )

@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\screen",
+    "\\src\\screen\\stack"
   ],
+  "SelectedNode": "\\src\\screen\\stack\\LoginPage.js",
   "PreviewInSolutionExplorer": false
 }
