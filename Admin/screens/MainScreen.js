@@ -46,14 +46,14 @@ export default function MaintScreen({navigation}) {
     return(
         <SafeAreaView style={styles.ViewStyle}>
                  <MaskedView maskElement={<Text style={[styles.LogInText,{backgroundColor:'transparent'}]}>
-                     All orders that don't have drivers asighned
+                     All orders that don't have drivers assigned
                  </Text>}>
               <LinearGradient
                 start={{x:0,y:0}}
                 end={{x:1,y:1}}
                 colors={['#FF4B25','#FFFB01']}>
                  <Text style={[styles.LogInText,{opacity:0}]}>
-                 All orders that don't have drivers asighned
+                 All orders that don't have drivers assigned
                  </Text>
               </LinearGradient>
             </MaskedView>
