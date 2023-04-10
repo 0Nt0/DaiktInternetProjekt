@@ -17,20 +17,19 @@ export default function OrderAd({navigation}) {
     const [userStreet, setStreet] = useState('');
     const [userHouse, setHouse] = useState('');
     const [userCode, setUserCode] = useState('');
-    const [purchaseID, setPurchaceID] = useState(uuidv4());
+    const [purchaseID, setPurchaceID] = useState('');
     const [itemID, setItemID] = useState(route.params.data);
     const [driverID, setDriverID] = useState('');
-    console.log(itemID);
     
 
     sendOrder = () => {
-       
-       set(ref(db, 'OrderInfo/'+purchaseID), {
+      // setPurchaceID()
+       set(ref(db, 'OrderInfo/'+userCity+userStreet+userHouse+userCode+itemID+user), {
             userCity: userCity,
             userStreet: userStreet,
             userHouse: userHouse,
             userCode: userCode,
-            id: purchaseID,
+            id: userCity+userStreet+userHouse+userCode+itemID,
             user: auth.currentUser.email,
             itemID: itemID,
             driverID: driverID,
@@ -38,13 +37,14 @@ export default function OrderAd({navigation}) {
         }).then(()=> {
             alert("Data is in!")
         });
-        
+        console.log(purchaseID)
         setUserCity('');
         setStreet('');
         setHouse('');
         setUserCode('');
         setPurchaceID('');
         setDriverID('');
+        
     }       
 
     return(

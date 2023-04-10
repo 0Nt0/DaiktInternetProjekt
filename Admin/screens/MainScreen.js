@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, Animated, FlatList } from "react-native";
+ import { Alert, StyleSheet, Text, View, KeyboardAvoidingView, TextInput, TouchableOpacity, Animated, FlatList } from "react-native";
 import { useEffect, useState,useRef } from "react";
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -62,9 +62,10 @@ export default function MaintScreen({navigation}) {
                 keyExtractor={(item) => item.id}
                 data={ad}
                 renderItem={({item}) => (
+
                     <TouchableOpacity onPress={()=>navigation.navigate('Order',item)}>
                     <View >
-                    <Text style={{color:'#FF4B25'}}>_______________________________________</Text>
+                    {item.driverID===""? <View><Text style={{color:'#FF4B25'}}>_______________________________________</Text>
                             <Text>id= {item.id}</Text>
                            
                             <Text>City= {item.userCity}</Text>
@@ -74,12 +75,15 @@ export default function MaintScreen({navigation}) {
                             <Text>User= {item.user}</Text>
                             <Text>Driver= {item.driverID}</Text>
                             <Text style={{color:'#FF4B25'}}>_______________________________________</Text>
+                            </View>: null}
+                    
                     </View>
                     </TouchableOpacity>
+                   
   
 
 
-                )}/>
+    )}/>
 
         </SafeAreaView >
     )

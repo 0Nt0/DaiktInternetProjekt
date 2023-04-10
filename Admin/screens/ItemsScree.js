@@ -45,6 +45,21 @@ export default function ItemsScreen({navigation}) {
 
     }
 
+    const ErrorForDelete=(y)=>{
+            Alert.alert('About To delete an item! ', 'Are you sure you want to do that?',
+            [
+               { 
+                text:'Cancel',
+               },
+               {
+                text:'Delete',
+                onPress:()=>{ 
+                             DeleteItem(y);
+                            }
+               },
+            ]);
+    }
+
 
     return(
         <SafeAreaView style={styles.ViewStyle}>
@@ -67,7 +82,7 @@ export default function ItemsScreen({navigation}) {
                 data={ad}
                 renderItem={({item}) => (
                     <View >
-                        <TouchableOpacity onPress={()=>DeleteItem(item.id)}>
+                        <TouchableOpacity onPress={()=>ErrorForDelete(item.id)}>
                             <Text style={{color:'#FF4B25'}}>_______________________________________</Text>
                             <Text>id= {item.id}</Text>
                             <Text style={{color:'#FF4B25'}}>_______________________________________</Text>

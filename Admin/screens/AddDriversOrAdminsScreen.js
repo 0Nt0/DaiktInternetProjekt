@@ -90,6 +90,26 @@ export default function AddDriversOrAdminsScreen({navigation}) {
                                             setEmail(''),
                                             setID(''),
                                         setPassword('')}  
+    const AlertMessages=(x)=>{
+                                Alert.alert('About To Add: '+x, 'Are you sure you want to create '+x+'?',
+                                [
+                                   { 
+                                    text:'Cancel',
+                                   },
+                                   {
+                                    text:'Create',
+                                    onPress:()=>{ if(x== "Driver")
+                                                                {
+                                                                    DriverAdd();          
+                                                                }
+                                                    else if(x=="Admin")
+                                                                    {
+                                                                        AdminAdd();
+                                                                    }
+                                                }
+                                   },
+                                ]);
+                            }
     
     return(
     <SafeAreaView style={styles.ViewStyle}>
@@ -128,7 +148,7 @@ export default function AddDriversOrAdminsScreen({navigation}) {
                     secureTextEntry
                 />
             </View>
-            <TouchableOpacity style={styles.ButtonStyle} onPress={()=>[SpringAnimation(animationStart), AdminAdd()]}>
+            <TouchableOpacity style={styles.ButtonStyle} onPress={()=>[SpringAnimation(animationStart), AlertMessages("Admin")]}>
          <Animated.View style={{transform:[{scale:animationStart}]}}>
             <MaskedView  maskElement={<Text style={[{backgroundColor:'transparent', marginLeft:'25%',fontSize:20}]}>
                      ADD Admin
@@ -145,7 +165,7 @@ export default function AddDriversOrAdminsScreen({navigation}) {
          </Animated.View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.ButtonStyle,{marginTop:'2%'}]} onPress={()=>[SpringAnimation(animationStart2),DriverAdd() ]}>
+        <TouchableOpacity style={[styles.ButtonStyle,{marginTop:'2%'}]} onPress={()=>[SpringAnimation(animationStart2),AlertMessages("Driver") ]}>
          <Animated.View style={{transform:[{scale:animationStart2}]}}>
             <MaskedView  maskElement={<Text style={[{backgroundColor:'transparent', marginLeft:'25%',fontSize:20}]}>
                      ADD Driver
